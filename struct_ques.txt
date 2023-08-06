@@ -1,0 +1,19 @@
+Define a struct Person with members name, age, and address. Create a function to initialize the struct and another function to display its contents.
+
+Create a struct Point with x and y coordinates. Write a function that takes two points as parameters and calculates the distance between them.
+
+Define a struct Rectangle with members width and height. Write a function that computes the area of the rectangle.
+
+Create a struct Student with members name, roll_number, and an array of marks (assume 5 subjects). Write a function to calculate the average marks of a student.
+
+Implement a struct Time to represent time in hours, minutes, and seconds. Write a function that takes two time values and returns the time difference between them.
+
+Design a struct Book with members title, author, and year_published. Write a function that compares two books and determines if they have the same author.
+
+Create a struct Employee with members id, name, and salary. Write a function to find the employee with the highest salary in an array of employees.
+
+Define a struct Date to represent a calendar date with members day, month, and year. Write a function to check if a given date is valid or not.
+
+Create a struct Fraction with members numerator and denominator. Write functions to add, subtract, multiply, and divide two fractions.
+
+Design a struct Car with members make, model, year, and price. Write a program that allows the user to input details of multiple cars and then displays the car with the highest price.

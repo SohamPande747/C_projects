@@ -1,0 +1,86 @@
+Write a C program to print "Hello, World!" on the screen. 
+Done
+
+Write a C program to add two numbers and print the result. 
+Done
+
+Write a C program to find the factorial of a given number.
+Done
+
+Write a C program to check whether a number is prime or not.
+Done
+
+Write a C program to print the Fibonacci series up to a given term.
+Done
+
+Write a C program to find the largest element in an array.
+Done
+
+Write a C program to reverse an array.
+Done 
+
+Write a C program to sort an array in ascending order using the bubble sort algorithm.
+
+Write a C program to count the frequency of each element in an array.
+
+Write a C program to find the sum of all elements in an array.
+
+Write a C program to concatenate two strings.
+
+Write a C program to find the length of a string.
+
+Write a C program to convert a decimal number to binary.
+
+Write a C program to implement a stack (using an array).
+
+Write a C program to implement a queue (using an array).
+
+Write a C program to implement a linked list.
+
+Write a C program to reverse a linked list.
+
+Write a C program to implement a binary search tree.
+
+Write a C program to perform a depth-first search (DFS) on a graph.
+
+Write a C program to perform a breadth-first search (BFS) on a graph.
+
+
+
+
+
+
+Basic Level:
+
+Declare an integer array named numbers with 5 elements.
+Initialize the array numbers with the values 10, 20, 30, 40, and 50.
+Print the third element of the array numbers.
+Calculate and print the sum of all elements in the array numbers.
+Create a loop to print all elements of the array numbers on separate lines.
+Intermediate Level:
+
+Write a function to find the maximum element in an integer array.
+Write a function to find the minimum element in an integer array.
+Given two arrays arr1 and arr2, write a function to check if they are equal (i.e., have the same elements in the same order).
+Given an integer array, write a function to reverse its elements in place.
+Write a function to remove all occurrences of a specific element from an integer array, preserving the order of the remaining elements.
+Advanced Level:
+
+Given an unsorted integer array, write a function to find the two elements that appear only once, while all other elements appear twice.
+Implement a function to perform matrix multiplication for two-dimensional arrays.
+Write a function to find the kth smallest element in an integer array.
+Given an array of integers, find the length of the longest increasing subarray (subsequence where elements are in strictly increasing order).
+Implement an algorithm to rotate a two-dimensional array (matrix) 90 degrees clockwise.
+Expert Level:
+
+Write a function to perform a binary search on a sorted integer array and return the index of the target element.
+Given an array of integers, rearrange the array such that all even elements appear before all odd elements, and maintain the relative order of even and odd numbers.
+Implement a function to find the contiguous subarray with the largest sum (Kadane's algorithm) in an array of integers.
+Given an array of integers, find three elements whose sum is closest to a given target value.
+Implement an algorithm to sort a two-dimensional array (matrix) of integers row-wise and column-wise.
+Feel free to tackle these questions one by one, and don't hesitate to ask for further explanations or solutions if needed. Happy coding!
+
+
+
+
+
