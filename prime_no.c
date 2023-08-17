@@ -7,23 +7,6 @@ int main()
     scanf("%d", &number);
 
 
-    /*
-    for (int i = 2; i < number; i++)
-    {
-        if (number%i == 0)
-        {
-            printf("The number is not Prime\n");
-            break;
-        }
-        else
-        {
-            printf("The number is Prime\n");
-            break;
-        }
-    }
-
-    */
-
     int flag = 1;
 
     for(int i=2;i<number;i++)
