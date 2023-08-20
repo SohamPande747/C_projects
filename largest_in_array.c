@@ -7,6 +7,7 @@ int main()
 
     for (int i = 1; i < length; i++)
     {
+        //Bakchodi ka comment....
         if(num[i] > num[0])
         {
             num[0] = num[i];

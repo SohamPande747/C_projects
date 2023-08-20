@@ -1,28 +1,27 @@
 #include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
 
-int main()
+int main() 
 {
-	int num;
-	
-	printf("Enter side length: ");
-	scanf("%d", &num);
-	int flag = 0;
 
-	for (int i = 2; i < num; i++)
+    int n;
+    scanf("%d", &n);
+
+	for (int i = n; i > 0; i--)
 	{
-		if(num%i == 0)
+		for (int j = n; j > i; j--)
 		{
-			flag = 1;
-			break;
+			printf("%d ", j);
 		}
+		printf("\n");
+
 	}
 
-	if(flag == 0)
-	{
-		printf("prime");
-	}
-	else
-	{
-		printf("not prime");
-	}
+
+
+
+  	// Complete the code to print the pattern.
+    return 0;
 }
