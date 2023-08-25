@@ -1,27 +1,29 @@
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include <stdlib.h>
 
 int main() 
 {
+	int row,col;
 
-    int n;
-    scanf("%d", &n);
+	printf("Enter no. of rows: ");
+	scanf("%d", &row);
+	printf("Enter no. of columns: ");
+	scanf("%d", &col);
 
-	for (int i = n; i > 0; i--)
+	int mat[row][col];
+
+	for (int i = 0; i < row; i++)
 	{
-		for (int j = n; j > i; j--)
+		for (int j = 0; j < col; j++)
 		{
-			printf("%d ", j);
+			printf("Enter element %d, %d: ", i,j);
+			scanf("%d", &mat[i][j]);
+			printf("%d", mat[i][j]);
 		}
-		printf("\n");
-
 	}
 
 
 
 
-  	// Complete the code to print the pattern.
-    return 0;
+	return 0;
 }
+
