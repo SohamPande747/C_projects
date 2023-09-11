@@ -1,106 +1,97 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
-#include <limits.h>
 
-#define R 4
-#define C 4
+// Function to find the maximum area of rectangle in histogram
+int maxHistogram(int hist[], int n) {
+    int maxArea = 0;
+    int top, area, i = 0;
+    int stack[n];
 
-struct Stack {
-    int top;
-    unsigned capacity;
-    int* array;
-};
+    while (i < n) {
+        if (!top || hist[stack[top - 1]] <= hist[i]) {
+            stack[top++] = i++;
+        } else {
+            int height = hist[stack[--top]];
+            int width = top ? i - stack[top - 1] - 1 : i;
+            area = height * width;
 
-struct Stack* createStack(unsigned capacity) {
-    struct Stack* stack = (struct Stack*)malloc(sizeof(struct Stack));
-    stack->capacity = capacity;
-    stack->top = -1;
-    stack->array = (int*)malloc(stack->capacity * sizeof(int));
-    return stack;
-}
-
-bool isEmpty(struct Stack* stack) {
-    return stack->top == -1;
-}
-
-void push(struct Stack* stack, int item) {
-    stack->array[++stack->top] = item;
-}
-
-int pop(struct Stack* stack) {
-    if (!isEmpty(stack))
-        return stack->array[stack->top--];
-    return INT_MIN;
-}
-
-int top(struct Stack* stack) {
-    if (!isEmpty(stack))
-        return stack->array[stack->top];
-    return INT_MIN;
-}
-
-int maxHist(int row[]) {
-    struct Stack* result = createStack(C);
-    int top_val;
-    int max_area = 0;
-    int area = 0;
-    int i = 0;
-    
-    while (i < C) {
-        if (isEmpty(result) || row[top(result)] <= row[i])
-            push(result, i++);
-        else {
-            top_val = row[top(result)];
-            pop(result);
-            area = top_val * i;
-            
-            if (!isEmpty(result))
-                area = top_val * (i - top(result) - 1);
-            if (area > max_area)
-                max_area = area;
+            if (area > maxArea) {
+                maxArea = area;
+            }
         }
     }
-    
-    while (!isEmpty(result)) {
-        top_val = row[top(result)];
-        pop(result);
-        area = top_val * i;
-        
-        if (!isEmpty(result))
-            area = top_val * (i - top(result) - 1);
-        if (area > max_area)
-            max_area = area;
+
+    while (top) {
+        int height = hist[stack[--top]];
+        int width = top ? i - stack[top - 1] - 1 : i;
+        area = height * width;
+
+        if (area > maxArea) {
+            maxArea = area;
+        }
     }
-    
-    free(result->array);
-    free(result);
-    
-    return max_area;
+
+    return maxArea;
 }
 
-int maxRectangle(int A[][C]) {
-    int result = maxHist(A[0]);
-    
-    for (int i = 1; i < R; i++) {
-        for (int j = 0; j < C; j++)
-            if (A[i][j])
-                A[i][j] += A[i - 1][j];
-        result = result > maxHist(A[i]) ? result : maxHist(A[i]);
+// Function to find the maximum size rectangle binary-sub-matrix with all 1's
+int maxRectangle(int matrix[], int rows, int cols) {
+    int maxArea = 0;
+    int histogram[cols];
+
+    // Initialize the first row of the histogram with the values from the first row of the matrix
+    for (int j = 0; j < cols; j++) {
+        histogram[j] = matrix[j];
     }
-    
-    return result;
+
+    maxArea = maxHistogram(histogram, cols);
+
+    for (int i = 1; i < rows; i++) {
+        // Update the histogram for each subsequent row
+        for (int j = 0; j < cols; j++) {
+            if (matrix[i * cols + j] == 0) {
+                histogram[j] = 0;
+            } else {
+                histogram[j] += 1;
+            }
+        }
+
+        int area = maxHistogram(histogram, cols);
+        if (area > maxArea) {
+            maxArea = area;
+        }
+    }
+
+    return maxArea;
 }
 
 int main() {
-    int A[R][C] = {
-        { 0, 1, 1, 0 },
-        { 1, 1, 1, 1 },
-        { 1, 1, 1, 1 },
-        { 1, 1, 0, 0 }
-    };
-    
-    printf("Area of maximum rectangle is %d\n", maxRectangle(A));
-    
+    int rows, cols;
+
+    printf("Enter the number of rows and columns: ");
+    scanf("%d %d", &rows, &cols);
+
+    int matrix[rows][cols];
+    printf("Enter the binary matrix (0s and 1s):\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    int* flattenedMatrix = (int*)malloc(rows * cols * sizeof(int));
+
+    // Flatten the 2D matrix into a 1D array
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            flattenedMatrix[i * cols + j] = matrix[i][j];
+        }
+    }
+
+    int maxArea = maxRectangle(flattenedMatrix, rows, cols);
+    printf("The maximum size rectangle binary-sub-matrix with all 1's has an area of %d\n", maxArea);
+
+    free(flattenedMatrix);
+
     return 0;
 }
