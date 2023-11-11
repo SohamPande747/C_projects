@@ -9,12 +9,12 @@ int main()
     {
         for (int j = i+1; j < n; j++)
         {
-            printf(" ");
+            printf("  ");
         }
         
         for (int j = 0; j <= i; j++)
         {
-            printf("#");
+            printf("# ");
         }
         printf("\n");
     }

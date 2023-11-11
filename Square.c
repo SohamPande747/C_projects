@@ -9,11 +9,11 @@ int main ()
 
     for (i = 0; i < height; i++)
     {
-        for (j = 1; j < height; j++)
+        for (j = 0; j < height; j++)
         {
             printf("0 ");
         }
-        printf("# \n");
+        printf("\n");
     }
     
 }
